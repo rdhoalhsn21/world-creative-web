@@ -29,7 +29,7 @@ body {
 }
 *, *::before, *::after {
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent; /* Hilangkan highlight biru saat di-tap di iOS */
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* SISTEM WARNA & DASAR */
@@ -50,7 +50,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:100;backgrou
 .nav nav{display:flex;gap:24px;font-size:15px;font-weight:500;align-items:center}
 .nav nav a{color:var(--mute)}
 .nav nav a:hover{color:var(--ink)}
-.cta-s,.btn{background:var(--accent);color:var(--on-accent)!important;border:0;border-radius:999px;padding:12px 24px;font:700 15px "DM Sans",sans-serif;cursor:pointer;display:inline-block;transition:all .3s ease;box-shadow:0 4px 12px color-mix(in srgb, var(--accent) 20%, transparent);text-align:center;}
+.cta-s,.btn{background:var(--accent);color:var(--on-accent)!important;border:0;border-radius:999px;padding:12px 24px;font:700 15px "DM Sans",sans-serif;cursor:pointer;display:inline-block;transition:all .3s ease;box-shadow:0 4px 12px color-mix(in srgb, var(--accent) 20%, transparent);text-align:center;-webkit-appearance:none;appearance:none;}
 .cta-s:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px color-mix(in srgb, var(--accent) 30%, transparent)}
 .btn.ghost{background:transparent;color:var(--ink)!important;border:1.5px solid var(--line);box-shadow:none}
 .btn.ghost:hover{border-color:var(--ink);background:var(--surface)}
@@ -117,17 +117,67 @@ section{padding:100px 0}
 .steps li::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:18px;margin-bottom:20px}
 .steps b{display:block;margin-bottom:8px;font-size:18px}.steps span{color:var(--mute);font-size:16px}
 
-/* FORM & RINGKASAN */
+/* =========================================
+   FORM & RINGKASAN (DIPERBAIKI UNTUK IOS)
+   ========================================= */
 .formcard{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:start}
 form,.summary{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:40px;width:100%;}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 label{display:block;font-weight:600;font-size:15px;margin-bottom:20px}
-input,select,textarea{width:100%;margin-top:8px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:400 16px "DM Sans",sans-serif;transition:border-color .3s}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+
+/* Memaksa input dan select untuk tampil sama di iOS & Android */
+input[type="text"],input[type="email"],input[type="tel"],input[type="date"],select,textarea{
+  width:100%;
+  margin-top:8px;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--bg);
+  color:var(--ink);
+  font:400 16px "DM Sans",sans-serif;
+  transition:border-color .3s;
+  -webkit-appearance:none; /* Menghilangkan gaya bawaan iOS */
+  appearance:none;
+  outline:none;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
 textarea{min-height:120px;resize:vertical}
-.chk{display:flex;gap:12px;align-items:flex-start;font-weight:400;margin:16px 0}
-.chk input{width:auto;margin:5px 0 0;transform:scale(1.2)}
-.chk span{flex:1;color:var(--mute);font-size:15px}
+
+/* MEMAKSA CHECKBOX BERUKURAN SAMA DI IOS & ANDROID */
+.chk{display:flex;gap:12px;align-items:flex-start;font-weight:400;margin:16px 0;cursor:pointer;}
+.chk input[type="checkbox"]{
+  -webkit-appearance:none; /* Hilangkan gaya bawaan */
+  appearance:none;
+  width:24px !important; /* Kunci lebar */
+  height:24px !important; /* Kunci tinggi */
+  min-width:24px; /* Cegah mengecil */
+  flex-shrink:0; /* Cegah gepeng */
+  margin:2px 0 0 0;
+  border:1.5px solid var(--mute);
+  border-radius:6px;
+  background:transparent;
+  display:inline-block;
+  position:relative;
+  cursor:pointer;
+  transition:all .2s;
+}
+.chk input[type="checkbox"]:checked{
+  background:var(--accent);
+  border-color:var(--accent);
+}
+.chk input[type="checkbox"]:checked::after{
+  content:"";
+  position:absolute;
+  left:7px;
+  top:3px;
+  width:6px;
+  height:12px;
+  border:solid white;
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+}
+.chk span{flex:1;color:var(--mute);font-size:15px;line-height:1.5;}
+
 fieldset{border:1px solid var(--line);border-radius:16px;margin:0 0 20px;padding:20px;width:100%;}
 legend{font-size:15px;font-weight:600;padding:0 8px}
 .err{color:var(--err);font-size:14px;display:none;margin-top:8px}

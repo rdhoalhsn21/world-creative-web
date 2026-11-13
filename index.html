@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>World Creative – Agency Kreatif</title>
-<!-- GANTI: deskripsi singkat bisnis kamu -->
 <meta name="description" content="World Creative – Agency kreatif untuk desain grafis, fotografi, videografi, dan live streaming event. Booking online cepat.">
 <meta name="theme-color" content="#2b45ff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,7 +139,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
 <h2 class="sec-h">Form booking</h2>
 <p class="sec-p">Estimasi biaya di samping dihitung otomatis dari pilihanmu.</p>
 <div class="formcard">
-<form id="bform" novalidate>
+<form id="bform" name="booking" method="POST" data-netlify="true" novalidate>
 <div class="f2">
 <label>Nama lengkap<input name="nama" autocomplete="name" required><span class="err">Isi nama lengkap.</span></label>
 <label>Perusahaan / brand<input name="brand" autocomplete="organization"></label>
@@ -182,7 +181,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
 <p class="sec-p">Ada pertanyaan sebelum booking? Hubungi kami langsung.</p>
 <div class="contact">
 <div class="info"><h4>WhatsApp</h4><a id="waLink" target="_blank" rel="noopener" href="#">+62 858-6924-6410</a><p>Respon tercepat, Senin–Sabtu 09.00–18.00 WIB.</p></div>
-<div class="info"><h4>Email</h4><a href="mailto:halo@worldcreative">halo@worldcreative.id</a><p>Untuk proposal dan kerja sama brand.</p></div>
+<div class="info"><h4>Email</h4><a href="mailto:halo@worldcreative.id">halo@worldcreative.id</a><p>Untuk proposal dan kerja sama brand.</p></div>
 <div class="info"><h4>Studio</h4><a href="#kontak">Jl. Contoh No. 12, Jember</a><p>Kunjungan studio dengan janji temu.</p></div>
 <div class="info"><h4>Instagram</h4><a href="#kontak">@worldcreative.id</a><p>Lihat portofolio terbaru.</p></div>
 </div>
@@ -198,8 +197,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
 <footer><div class="wrap">© 2026 WorldCreative. Semua hak dilindungi.</div></footer>
 
 <script>
-// GANTI: nomor WhatsApp bisnis kamu (format: kode negara tanpa +, tanpa spasi/tanda hubung)
-const WA="+6285869246410";
+const WA="6285869246410";
 const rp=n=>"Rp"+n.toLocaleString("id-ID");
 const PK=s=>{const[a,b,c,d]=s.split("|");return[a.replace("*",""),+b*1000,c,d.split(";"),a[0]==="*"]};
 const S={
@@ -247,4 +245,39 @@ function tabs(){$("tabs").innerHTML=keys.map(k=>`<button class="tab" role="tab" 
 $("tabs").querySelectorAll(".tab").forEach(b=>b.onclick=()=>{cur=b.dataset.k;curSub=first(cur);tabs();panel();});}
 function panel(){const s=S[cur],u=s.sub[curSub];
 $("panel").innerHTML=`<div class="tabs" aria-label="Jenis layanan">${Object.entries(s.sub).map(([k,v])=>`<button class="tab sub" aria-pressed="${k===curSub}" data-s="${k}">${v.n}</button>`).join("")}</div>
-<div class="svc
+<div class="svc-intro"><div><h3>${u.n}</h3><p>${u.d}</p></div><div class="info"><h4>Informasi booking</h4><ul>${[...s.info,u.x].map(i=>`<li>${i}</li>`).join("")}</ul></div></div>
+<div class="grid3">${u.pk.map((p,i)=>`<div class="plan${p[4]?" pop":""}">${p[4]?'<span class="badge">Paling dipilih</span>':""}<h4>${p[0]}</h4><div class="price">${rp(p[1])}</div><div class="unit">${p[2]}</div><ul>${p[3].map(f=>`<li>${f}</li>`).join("")}</ul><button class="btn" data-i="${i}">Pilih paket ini</button></div>`).join("")}</div>
+<p class="addons"><b>Tambahan:</b> ${s.ad.map(a=>`${a[0]} (${rp(a[1])})`).join(" · ")}</p>`;
+$("panel").querySelectorAll(".sub").forEach(b=>b.onclick=()=>{curSub=b.dataset.s;panel();});
+$("panel").querySelectorAll(".plan .btn").forEach(b=>b.onclick=()=>{$("fsvc").value=cur;fillSub();$("fsub").value=curSub;fillPkg();$("fpkg").value=b.dataset.i;sync();location.hash="booking";});}
+function fillSvc(){$("fsvc").innerHTML=keys.map(k=>`<option value="${k}">${S[k].n}</option>`).join("");fillSub();}
+function fillSub(){const s=S[$("fsvc").value];$("fsub").innerHTML=Object.entries(s.sub).map(([k,v])=>`<option value="${k}">${v.n}</option>`).join("");fillPkg();}
+function fillPkg(){const s=S[$("fsvc").value],u=s.sub[$("fsub").value];
+$("fpkg").innerHTML=u.pk.map((p,i)=>`<option value="${i}">${p[0]} – ${rp(p[1])}</option>`).join("");
+$("faddons").innerHTML=s.ad.map((a,i)=>`<label class="chk"><input type="checkbox" class="ad" value="${i}"><span>${a[0]} (+${rp(a[1])})</span></label>`).join("");
+document.querySelectorAll(".ad").forEach(c=>c.onchange=sync);sync();}
+function calc(){const s=S[$("fsvc").value],u=s.sub[$("fsub").value],p=u.pk[+$("fpkg").value];
+const ads=[...document.querySelectorAll(".ad:checked")].map(c=>s.ad[+c.value]);
+return{s,u,p,ads,total:p[1]+ads.reduce((a,b)=>a+b[1],0)};}
+function sync(){const c=calc();$("sSvc").textContent=c.s.n;$("sJenis").textContent=c.u.n;$("sPkg").textContent=c.p[0];
+$("sAdd").textContent=c.ads.length?c.ads.map(a=>a[0]).join(", "):"–";
+$("sTot").textContent=rp(c.total);$("sDp").textContent=rp(Math.round(c.total/2));}
+$("fsvc").onchange=fillSub;$("fsub").onchange=fillPkg;$("fpkg").onchange=sync;
+$("waLink").href="https://wa.me/"+WA;
+$("bform").addEventListener("submit",e=>{e.preventDefault();const f=e.target;let ok=true;
+[...f.querySelectorAll("input[required]:not([type=checkbox]),textarea[required]")].forEach(el=>{
+let v=el.value.trim(),bad=!v;if(el.type==="email")bad=!/^\S+@\S+\.\S+$/.test(v);if(el.type==="tel")bad=v.replace(/\D/g,"").length<9;
+el.parentElement.classList.toggle("invalid",bad);if(bad)ok=false;});
+const ag=f.setuju.checked;$("agreeErr").style.display=ag?"none":"block";if(!ag)ok=false;
+if(!ok){const first=f.querySelector(".invalid input,.invalid textarea");if(first)first.focus();return;}
+const c=calc(),id="LS-"+Date.now().toString().slice(-6);
+const tgl=new Date(f.tgl.value).toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});
+const txt=`Halo Admin World Creative,\n\nSaya *${f.nama.value}*${f.brand.value?" ("+f.brand.value+")":""} ingin melakukan booking.\n\n*ID Booking:* ${id}\n*Layanan:* ${c.s.n} – ${c.u.n}\n*Paket:* ${c.p[0]}\n*Tambahan:* ${c.ads.length?c.ads.map(a=>a[0]).join(", "):"-"}\n*Tanggal:* ${tgl}\n*Lokasi:* ${f.lokasi.value||"-"}\n*Estimasi:* ${rp(c.total)} (DP ${rp(Math.round(c.total/2))})\n\n*Kebutuhan:* ${f.brief.value}\n\nTerima kasih. Mohon konfirmasi jadwalnya ya.`;
+$("doneTxt").textContent=txt;$("waBtn").href="https://wa.me/"+WA+"?text="+encodeURIComponent(txt);
+$("done").classList.add("show");$("done").focus();$("done").scrollIntoView({behavior:"smooth",block:"center"});});
+$("copyBtn").onclick=async()=>{try{await navigator.clipboard.writeText($("doneTxt").textContent);$("copyBtn").textContent="Tersalin ✓";}catch(e){$("copyBtn").textContent="Salin manual dari kotak di atas";}};
+$("bform").tgl.min=new Date().toISOString().split("T")[0];
+tabs();panel();fillSvc();
+</script>
+</body>
+</html>

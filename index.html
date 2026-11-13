@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>World Creative – Agency Kreatif</title>
+<!-- GANTI: deskripsi singkat bisnis kamu -->
+<meta name="description" content="World Creative – Agency kreatif untuk desain grafis, fotografi, videografi, dan live streaming event. Booking online cepat.">
+<meta name="theme-color" content="#2b45ff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f2f4;--surface:#fff;--ink:#181b24;--mute:#5d6372;--line:#d9dce3;--accent:#2b45ff;--on-accent:#fff;--hi:#ffd23f;--ok:#17803d;--err:#c62828;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12141a;--surface:#1b1e27;--ink:#eceef3;--mute:#9aa1b2;--line:#323747;--accent:#7b8cff;--on-accent:#10131c;--hi:#ffd23f;--ok:#4cc97b;--err:#ff7b7b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12141a;--surface:#1b1e27;--ink:#eceef3;--mute:#9aa1b2;--line:#323747;--accent:#7b8cff;--on-accent:#10131c;--hi:#ffd23f;--ok:#4cc97b;--err:#ff7b7b;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "DM Sans",system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font:800 20px "Bricolage Grotesque",sans-serif;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--hi);box-shadow:0 0 0 4px color-mix(in srgb,var(--hi) 30%,transparent)}
+.nav nav{display:flex;gap:18px;font-size:15px;font-weight:500}
+.nav nav a{text-decoration:none;color:var(--mute)}
+.nav nav a:hover{color:var(--ink)}
+@media(max-width:640px){.nav nav a:not(.cta-s){display:none}}
+.cta-s,.btn{background:var(--accent);color:var(--on-accent)!important;border:0;border-radius:10px;padding:10px 18px;font:700 15px "DM Sans",sans-serif;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--ink)!important;border:1.5px solid var(--ink)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hero{padding:72px 0 56px}
+.hero h1{font-size:clamp(40px,7.5vw,84px);font-weight:800;max-width:14ch}
+.hero h1 mark{background:var(--hi);color:#181b24;padding:0 .12em;border-radius:6px}
+.hero p{max-width:52ch;color:var(--mute);font-size:19px;margin:22px 0 28px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap}
+section{padding:56px 0}
+.sec-h{font-size:clamp(28px,4vw,42px);margin-bottom:8px}
+.sec-p{color:var(--mute);margin:0 0 28px;max-width:60ch}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tab{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:10px 18px;font:500 15px "DM Sans",sans-serif;cursor:pointer}
+.tab.sub{padding:7px 14px;font-size:14px}
+.tab.sub[aria-pressed=true]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.tab[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.svc-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:start;margin-bottom:28px}
+@media(max-width:760px){.svc-intro{grid-template-columns:1fr}}
+.svc-intro h3{font-size:30px;margin-bottom:10px}
+.svc-intro p{color:var(--mute);margin:0}
+.info{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.info h4{margin:0 0 10px;font:700 16px "DM Sans",sans-serif}
+.info ul{margin:0;padding-left:18px;color:var(--mute);font-size:15px}
+.info li{margin:5px 0}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column}
+.plan.pop{border:2px solid var(--accent)}
+.plan .badge{align-self:flex-start;background:var(--hi);color:#181b24;font-size:13px;font-weight:700;padding:2px 10px;border-radius:999px;margin-bottom:8px}
+.plan h4{font:700 20px "Bricolage Grotesque",sans-serif;margin:0}
+.price{font:800 30px "Bricolage Grotesque",sans-serif;margin:10px 0 2px}
+.unit{color:var(--mute);font-size:14px;margin-bottom:14px}
+.plan ul{margin:0 0 18px;padding:0;list-style:none;flex:1}
+.plan li{padding:6px 0 6px 24px;position:relative;font-size:15px;border-top:1px solid var(--line)}
+.plan li::before{content:"";position:absolute;left:3px;top:13px;width:10px;height:6px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+.plan .btn{text-align:center;width:100%}
+.addons{margin-top:16px;font-size:14px;color:var(--mute)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;counter-reset:s;padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:700;margin-bottom:10px}
+.steps b{display:block;margin-bottom:4px}.steps span{color:var(--mute);font-size:15px}
+.formcard{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:start}
+@media(max-width:860px){.formcard{grid-template-columns:1fr}}
+form,.summary{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.f2{grid-template-columns:1fr}}
+label{display:block;font-weight:500;font-size:14px;margin-bottom:14px}
+input,select,textarea{width:100%;margin-top:5px;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:400 16px "DM Sans",sans-serif}
+textarea{min-height:100px;resize:vertical}
+.chk{display:flex;gap:10px;align-items:flex-start;font-weight:400;margin:8px 0}
+.chk input{width:auto;margin:4px 0 0}
+.chk span{flex:1}
+fieldset{border:1.5px solid var(--line);border-radius:10px;margin:0 0 14px;padding:10px 14px}
+legend{font-size:14px;font-weight:500;padding:0 6px}
+.err{color:var(--err);font-size:13px;display:none;margin-top:4px}
+.invalid input,.invalid select,.invalid textarea{border-color:var(--err)}
+.invalid .err{display:block}
+.summary{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px)}
+.summary h4{font:700 20px "Bricolage Grotesque",sans-serif;margin:0 0 12px}
+.srow{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:15px}
+.srow span:first-child{color:var(--mute)}
+.total{font:800 28px "Bricolage Grotesque",sans-serif}
+.note{font-size:13px;color:var(--mute);margin-top:12px}
+.done{display:none;margin-top:20px;border:2px solid var(--ok);background:var(--surface);border-radius:14px;padding:22px}
+.done.show{display:block}
+.done h3{font-size:24px;margin-bottom:8px}
+.done pre{white-space:pre-wrap;background:var(--bg);padding:14px;border-radius:10px;font:14px/1.5 "DM Sans",sans-serif;border:1px solid var(--line)}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.contact .info a{font-weight:700;word-break:break-word}
+.contact .info p{margin:4px 0 0;color:var(--mute);font-size:15px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:var(--mute);margin:8px 0 0}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:14px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+<a class="logo" href="#top"><i></i>World Creative</a>
+<nav><a href="#layanan">Layanan</a><a href="#alur">Alur</a><a href="#kontak">Kontak</a><a class="cta-s" href="#booking">Booking</a></nav>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+<h1>Visual yang bikin brand kamu <mark>diingat.</mark></h1>
+<p>Desain grafis, fotografi, videografi, dan live streaming event dalam satu tim. Pilih layanan, lihat harga, lalu booking dalam hitungan menit.</p>
+<div class="row"><a class="btn" href="#layanan">Lihat harga layanan</a><a class="btn ghost" href="#booking">Booking sekarang</a></div>
+</div>
+
+<section id="layanan"><div class="wrap">
+<h2 class="sec-h">Layanan &amp; panduan harga</h2>
+<p class="sec-p">Harga adalah estimasi awal dan belum termasuk pajak. Kebutuhan khusus akan kami hitung ulang setelah konsultasi.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div id="panel" role="tabpanel"></div>
+</div></section>
+
+<section id="alur"><div class="wrap">
+<h2 class="sec-h">Alur booking</h2>
+<p class="sec-p">Dari isi form sampai hasil jadi, semuanya jelas.</p>
+<ol class="steps">
+<li><b>Isi form booking</b><span>Pilih layanan, paket, dan tanggal.</span></li>
+<li><b>Konfirmasi tim</b><span>Kami membalas maksimal 1×24 jam kerja.</span></li>
+<li><b>Bayar DP 50%</b><span>Jadwal terkunci setelah DP diterima.</span></li>
+<li><b>Produksi</b><span>Pantau progres, revisi sesuai paket.</span></li>
+<li><b>Serah terima</b><span>Pelunasan, lalu file final dikirim.</span></li>
+</ol>
+</div></section>
+
+<section id="booking"><div class="wrap">
+<h2 class="sec-h">Form booking</h2>
+<p class="sec-p">Estimasi biaya di samping dihitung otomatis dari pilihanmu.</p>
+<div class="formcard">
+<form id="bform" novalidate>
+<div class="f2">
+<label>Nama lengkap<input name="nama" autocomplete="name" required><span class="err">Isi nama lengkap.</span></label>
+<label>Perusahaan / brand<input name="brand" autocomplete="organization"></label>
+<label>Email<input name="email" type="email" autocomplete="email" required><span class="err">Isi email yang valid.</span></label>
+<label>Nomor WhatsApp<input name="wa" type="tel" inputmode="tel" autocomplete="tel" required placeholder="08xxxxxxxxxx"><span class="err">Isi nomor WhatsApp (min. 9 digit).</span></label>
+<label>Layanan<select name="layanan" id="fsvc"></select></label>
+<label>Jenis<select name="jenis" id="fsub"></select></label>
+<label>Paket<select name="paket" id="fpkg"></select></label>
+<label>Tanggal acara / deadline<input name="tgl" type="date" required><span class="err">Pilih tanggal.</span></label>
+<label>Lokasi / kota<input name="lokasi" placeholder="Contoh: Jember"></label>
+</div>
+<fieldset><legend>Tambahan (opsional)</legend><div id="faddons"></div></fieldset>
+<label>Ceritakan kebutuhanmu<textarea name="brief" required placeholder="Tujuan, konsep, referensi, jumlah peserta, dll."></textarea><span class="err">Tulis singkat kebutuhanmu.</span></label>
+<label class="chk"><input type="checkbox" name="setuju" required><span>Saya setuju dengan ketentuan booking (DP 50%, jadwal ulang, dan revisi) pada paket yang dipilih.</span></label>
+<span class="err" id="agreeErr" style="display:none">Centang persetujuan untuk melanjutkan.</span>
+<button class="btn" type="submit">Kirim booking</button>
+</form>
+<aside class="summary" aria-live="polite">
+<h4>Ringkasan</h4>
+<div class="srow"><span>Layanan</span><b id="sSvc"></b></div>
+<div class="srow"><span>Jenis</span><b id="sJenis"></b></div>
+<div class="srow"><span>Paket</span><b id="sPkg"></b></div>
+<div class="srow"><span>Tambahan</span><b id="sAdd">–</b></div>
+<div class="srow"><span>Estimasi total</span><span class="total" id="sTot"></span></div>
+<div class="srow"><span>DP 50%</span><b id="sDp"></b></div>
+<p class="note">Estimasi belum termasuk pajak dan biaya transport di luar kota.</p>
+</aside>
+</div>
+<div class="done" id="done" tabindex="-1">
+<h3>Booking terkirim ✓</h3>
+<p>Salin ringkasan di bawah, lalu kirim ke tim kami lewat WhatsApp agar jadwal cepat dikonfirmasi.</p>
+<pre id="doneTxt"></pre>
+<div class="row" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" id="waBtn" target="_blank" rel="noopener">Kirim via WhatsApp</a><button class="btn ghost" id="copyBtn" type="button">Salin ringkasan</button></div>
+</div>
+</div></section>
+
+<section id="kontak"><div class="wrap">
+<h2 class="sec-h">Kontak</h2>
+<p class="sec-p">Ada pertanyaan sebelum booking? Hubungi kami langsung.</p>
+<div class="contact">
+<div class="info"><h4>WhatsApp</h4><a id="waLink" target="_blank" rel="noopener" href="#">+62 858-6924-6410</a><p>Respon tercepat, Senin–Sabtu 09.00–18.00 WIB.</p></div>
+<div class="info"><h4>Email</h4><a href="mailto:halo@worldcreative">halo@worldcreative.id</a><p>Untuk proposal dan kerja sama brand.</p></div>
+<div class="info"><h4>Studio</h4><a href="#kontak">Jl. Contoh No. 12, Jember</a><p>Kunjungan studio dengan janji temu.</p></div>
+<div class="info"><h4>Instagram</h4><a href="#kontak">@worldcreative.id</a><p>Lihat portofolio terbaru.</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap faq">
+<h2 class="sec-h">Pertanyaan umum</h2>
+<details><summary>Apakah harga bisa disesuaikan?</summary><p>Bisa. Paket adalah patokan awal. Kirim brief lewat form atau WhatsApp dan kami buat penawaran khusus.</p></details>
+<details><summary>Bagaimana jika jadwal berubah?</summary><p>Jadwal ulang gratis satu kali jika diajukan minimal 3 hari sebelum hari-H. Selebihnya mengikuti ketentuan paket.</p></details>
+<details><summary>Metode pembayaran apa yang tersedia?</summary><p>Transfer bank dan e-wallet. Detail rekening dikirim setelah booking dikonfirmasi.</p></details>
+</div></section>
+</main>
+<footer><div class="wrap">© 2026 WorldCreative. Semua hak dilindungi.</div></footer>
+
+<script>
+// GANTI: nomor WhatsApp bisnis kamu (format: kode negara tanpa +, tanpa spasi/tanda hubung)
+const WA="+6285869246410";
+const rp=n=>"Rp"+n.toLocaleString("id-ID");
+const PK=s=>{const[a,b,c,d]=s.split("|");return[a.replace("*",""),+b*1000,c,d.split(";"),a[0]==="*"]};
+const S={
+desain:{n:"Desain Grafis",d:"",
+info:["DP 50% di awal, pelunasan sebelum file final dikirim","Revisi tambahan Rp100.000 per kali","File master tersedia di paket tertinggi"],
+ad:[["Revisi tambahan (3x)",250000],["Pengerjaan kilat (maks. 2 hari)",500000]],
+sub:{
+logo:{n:"Logo & Identitas",d:"Logo dan identitas visual yang mudah diingat dan dipakai di segala media.",x:"Pengerjaan 5–14 hari kerja",pk:["Basic|750|per proyek|1 konsep logo;2x revisi;File PNG dan PDF","*Standar|1800|per proyek|3 konsep logo;5x revisi;Kartu nama dan palet warna","Premium|4500|per proyek|Brand guideline lengkap;Revisi tak terbatas;File master AI"]},
+flyer:{n:"Flyer & Poster",d:"Materi promosi cetak maupun digital untuk acara, diskon, dan peluncuran.",x:"Pengerjaan 1–3 hari kerja",pk:["Single|200|per desain|1 desain;2x revisi;File siap cetak","*Paket 5|850|5 desain|5 desain;3x revisi;Ukuran A4 atau A3","Kampanye|2000|10 desain|10 desain satu tema;Versi cetak dan digital;File master"]},
+kemasan:{n:"Kemasan & Label",d:"Desain label dan kemasan produk lengkap dengan mockup.",x:"Dieline disesuaikan dengan percetakan pilihanmu",pk:["Label|1200|per produk|1 desain label;3x revisi;Mockup","*Kemasan|2800|per produk|Dieline dan desain kemasan;5x revisi;Mockup 3D","Seri Produk|7500|hingga 5 varian|5 varian satu sistem desain;Revisi 5x;File master"]},
+sosmed:{n:"Konten Sosial Media",d:"Feed, story, dan highlight yang konsisten dengan brand kamu.",x:"Template bisa diedit sendiri (Canva) bila diminta",pk:["Starter|600|6 desain|6 desain feed;2x revisi;Template","*Bulanan|1800|12 desain|12 feed dan story;Konsep konten;Caption dasar","Pro|3500|24 desain|24 desain;Cover highlight;Kalender konten"]},
+undangan:{n:"Undangan",d:"Undangan pernikahan, ulang tahun, atau acara perusahaan, digital maupun cetak.",x:"Kirim data acara minimal 5 hari sebelum dibutuhkan",pk:["Digital|350|per desain|Desain digital;2x revisi;Format story dan feed","*Cetak|900|per desain|Desain cetak;3x revisi;File siap cetak","Undangan Web|1500|per proyek|Halaman undangan online;Galeri dan RSVP;Musik latar"]}}},
+foto:{n:"Photography",d:"",
+info:["DP 50% untuk mengunci tanggal","Biaya transport di luar Jember dihitung terpisah","Hak pakai komersial termasuk untuk penyewa"],
+ad:[["Retouch tambahan (10 foto)",350000],["Cetak foto 12R (5 lembar)",200000],["Fotografer tambahan",1000000]],
+sub:{
+wedding:{n:"Wedding",d:"Dokumentasi akad dan resepsi, dari momen kecil sampai foto keluarga.",x:"Hasil terpilih dikirim 7–14 hari kerja",pk:["Akad atau Resepsi|3500|4 jam|1 fotografer;150 foto teredit;Galeri online","*Full Day|6500|8 jam|2 fotografer;300 foto teredit;Album 20 halaman","Premium|12000|full day|3 fotografer;500 foto teredit;2 album cetak"]},
+prewedding:{n:"Prewedding",d:"Sesi foto sebelum hari-H dengan konsep sesuai cerita kalian.",x:"Konsep dan moodboard dibahas sebelum sesi",pk:["Studio|1800|2 jam|Lokasi studio;30 foto teredit;1 kostum","*Outdoor|3200|4 jam|2 lokasi;50 foto teredit;Cetak 20R 2 lembar","Destinasi|6000|1 hari|3 lokasi;80 foto teredit;Cetak dan frame"]},
+event:{n:"Dokumentasi Event",d:"Seminar, ulang tahun, gathering, wisuda, dan acara perusahaan.",x:"Hasil dikirim 2–5 hari kerja",pk:["2 Jam|1000|2 jam|1 fotografer;50 foto teredit;Galeri online","*4 Jam|1800|4 jam|1 fotografer;100 foto teredit;Galeri online","Full Day|3500|8 jam|2 fotografer;250 foto teredit;Pengiriman kilat 1 hari"]},
+produk:{n:"Produk & Katalog",d:"Foto produk untuk marketplace, katalog, dan media sosial.",x:"Produk dikirim ke studio atau kami datang ke lokasi",pk:["10 Produk|800|10 foto|Background putih;Retouch;Resolusi marketplace","*Lifestyle|1800|20 foto|Styling dan properti;Retouch;Beberapa angle","Katalog|4500|50 foto|Katalog lengkap;Model;Retouch"]},
+potret:{n:"Potret & Wisuda",d:"Foto individu, keluarga, wisuda, dan profil profesional.",x:"Bisa di studio atau lokasi pilihanmu",pk:["Individu|500|1 jam|10 foto teredit;1 lokasi;Galeri online","*Keluarga|900|1,5 jam|20 foto teredit;Hingga 6 orang;1 cetak besar","Wisuda|650|1 jam|15 foto teredit;Foto toga;Galeri online"]}}},
+video:{n:"Videography",d:"",
+info:["DP 50% saat booking, jadwal dikunci setelah DP","Revisi editing 2x per paket","Musik berlisensi dan voice over tersedia sebagai tambahan"],
+ad:[["Drone footage",1000000],["Voice over profesional",750000],["Subtitle dua bahasa",400000]],
+sub:{
+wedding:{n:"Wedding Cinematic",d:"Video pernikahan bergaya sinematik yang bisa ditonton ulang.",x:"Pasca produksi 14–21 hari kerja",pk:["Highlight|3500|3 menit|Syuting akad;Video 3 menit;Musik","*Cinematic|7500|5–7 menit|2 videografer;Video 5 menit;Teaser 1 menit","Full|14000|full day|3 kru;Video panjang dan teaser;Drone"]},
+profile:{n:"Company Profile",d:"Video perusahaan untuk presentasi, website, dan tender.",x:"Pasca produksi 7–14 hari kerja",pk:["Basic|4000|1–2 menit|Syuting 4 jam;Video 2 menit;Musik","*Standar|7500|2–3 menit|Syuting setengah hari;Motion graphic;Color grading","Premium|15000|3–5 menit|Syuting full day;Wawancara;Voice over"]},
+iklan:{n:"Iklan Komersial",d:"Iklan produk dan jasa untuk media sosial, YouTube, dan TV.",x:"Skrip dan storyboard disetujui sebelum syuting",pk:["Singkat|3000|15–30 detik|Skrip;Syuting 2 jam;Video 30 detik","*TVC Digital|9000|60 detik|Konsep kreatif;Syuting 1 hari;3 versi cutdown","Sinematik|18000|60 detik|Kru 5 orang;Sound design;Color grading"]},
+sosmed:{n:"Reels & Konten Sosmed",d:"Video pendek untuk Instagram, TikTok, dan YouTube Shorts.",x:"Revisi minor dalam 3 hari setelah video diterima",pk:["1 Video|900|30–60 detik|Konsep;Editing;Teks dan musik","*Paket 4|3200|4 video|4 reels;Syuting 1 hari;Subtitle","Bulanan|7500|12 video|12 video;2 kali syuting;Ide konten"]},
+event:{n:"Aftermovie Event",d:"Rangkuman acara yang siap dibagikan ke peserta dan sponsor.",x:"Video jadi 5–10 hari kerja setelah acara",pk:["Highlight|2500|1–2 menit|1 videografer;Video 2 menit;Musik","*Aftermovie|5000|2–4 menit|2 videografer;Color grading;Teks dan logo sponsor","Multikamera|10000|full event|3 kamera;Video 5 menit;Teaser"]}}},
+live:{n:"Live Streaming Event",d:"",
+info:["DP 50% saat booking, pelunasan H-3 acara","Technical check dan gladi H-1 atau di hari acara","Rekaman siaran dikirim maksimal 2 hari setelah acara"],
+ad:[["Tambah 1 jam siaran",600000],["Tambah 1 kamera",800000],["Backup internet",500000]],
+sub:{
+seminar:{n:"Seminar & Webinar",d:"Siaran seminar, workshop, dan webinar hybrid.",x:"Zoom atau YouTube sesuai kebutuhan",pk:["Basic|2500|3 jam|2 kamera;1 platform;Slide dan logo","*Pro|5500|5 jam|3 kamera;Multi-platform;Moderasi chat","Hybrid|11000|8 jam|Peserta onsite dan online;Backup internet;Tim 4 orang"]},
+wedding:{n:"Wedding Live",d:"Keluarga yang tidak bisa hadir tetap menyaksikan akad dan resepsi.",x:"Link privat atau publik, kamu yang menentukan",pk:["Basic|2000|2 jam|1 kamera;YouTube atau Instagram;Link privat","*Resepsi|3800|4 jam|2 kamera;Overlay nama pengantin;Rekaman","Premium|7000|6 jam|3 kamera;Backup internet;Rekaman multi-kamera"]},
+konser:{n:"Konser & Pentas",d:"Siaran musik dan pentas dengan kualitas audio dan visual terjaga.",x:"Audio diambil dari mixer panggung",pk:["Pentas|6000|4 jam|3 kamera;Switcher;Overlay","*Konser|13000|6 jam|5 kamera;Audio feed;Backup internet","Festival|25000|8 jam|8 kamera;Multi-stage;Tim 8 orang"]},
+wisuda:{n:"Wisuda & Sekolah",d:"Wisuda, pentas seni, dan acara sekolah untuk orang tua di rumah.",x:"Daftar nama wisudawan dikirim H-3",pk:["Sekolah|2500|3 jam|2 kamera;YouTube;Overlay nama","*Wisuda|4500|5 jam|3 kamera;Slide wisudawan;Rekaman","Kampus|9000|8 jam|4 kamera;Multi-platform;Backup internet"]},
+olahraga:{n:"Turnamen & Olahraga",d:"Pertandingan dan turnamen dengan skor langsung di layar.",x:"Lokasi disurvei sebelum hari pertandingan",pk:["Pertandingan|3500|2 jam|2 kamera;Skor overlay;1 platform","*Turnamen|8000|1 hari|3 kamera;Skor dan replay;Multi-platform","Liga|16000|multi-hari|4 kamera;Replay dan highlight;Komentator"]}}}};
+Object.values(S).forEach(s=>Object.values(s.sub).forEach(u=>u.pk=u.pk.map(PK)));
+const keys=Object.keys(S);let cur="desain",curSub="logo";
+const $=id=>document.getElementById(id);
+const first=k=>Object.keys(S[k].sub)[0];
+function tabs(){$("tabs").innerHTML=keys.map(k=>`<button class="tab" role="tab" aria-selected="${k===cur}" data-k="${k}">${S[k].n}</button>`).join("");
+$("tabs").querySelectorAll(".tab").forEach(b=>b.onclick=()=>{cur=b.dataset.k;curSub=first(cur);tabs();panel();});}
+function panel(){const s=S[cur],u=s.sub[curSub];
+$("panel").innerHTML=`<div class="tabs" aria-label="Jenis layanan">${Object.entries(s.sub).map(([k,v])=>`<button class="tab sub" aria-pressed="${k===curSub}" data-s="${k}">${v.n}</button>`).join("")}</div>
+<div class="svc

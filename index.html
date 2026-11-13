@@ -153,6 +153,7 @@ footer{border-top:1px solid var(--line);padding:48px 0;color:var(--mute);font-si
 
 /* =========================================
    RESPONSIVE & MOBILE OPTIMIZATION 
+   (DIPERBAIKI AGAR SANGAT RAPI DI HP)
    ========================================= */
 @media(max-width:860px){
   .about-box{grid-template-columns:1fr;padding:40px 24px;gap:40px}
@@ -163,36 +164,59 @@ footer{border-top:1px solid var(--line);padding:48px 0;color:var(--mute);font-si
 }
 
 @media(max-width:640px){
+  /* NAVBAR DI HP */
   .nav .wrap{height:auto;padding:16px 20px;flex-direction:column;gap:16px}
-  .nav nav{width:100%;justify-content:center;gap:16px;flex-wrap:wrap}
-  .nav nav a{font-size:14px}
-  .cta-s{padding:10px 20px;font-size:14px}
+  .nav nav{width:100%;justify-content:center;gap:20px;flex-wrap:wrap}
+  .nav nav a{font-size:14px;font-weight:600}
+  .cta-s{padding:10px 20px;font-size:14px;width:100%;text-align:center}
   
-  .hero{padding:80px 0 40px}
-  .hero h1{font-size:clamp(36px,10vw,48px)}
-  .hero p{font-size:17px}
-  .hero .row{flex-direction:column;width:100%}
-  .hero .btn{width:100%;text-align:center}
+  /* HERO DI HP */
+  .hero{padding:60px 0 40px}
+  .hero h1{font-size:clamp(32px,9vw,42px);margin-bottom:16px}
+  .hero p{font-size:16px;margin:0 0 32px;line-height:1.6}
+  .hero .row{flex-direction:column;width:100%;gap:12px}
+  .hero .btn{width:100%;text-align:center;padding:14px 20px}
 
-  .about-box{padding:32px 20px}
-  .about-text h2{font-size:28px}
-  .about-stats{gap:24px}
-  .stat-item h3{font-size:28px}
+  /* SECTION PADDING DI HP */
+  section{padding:48px 0}
+  .sec-h{font-size:28px}
+  .sec-p{font-size:16px;margin-bottom:24px}
   
-  section{padding:64px 0}
-  .sec-h{font-size:32px}
-  .sec-p{margin-bottom:32px}
-  
-  .f2{grid-template-columns:1fr}
+  /* ABOUT DI HP */
+  .about-box{padding:24px 20px}
+  .about-text h2{font-size:26px}
+  .about-text p{font-size:16px}
+  .about-stats{gap:20px;justify-content:space-between}
+  .stat-item h3{font-size:26px}
+  .stat-item p{font-size:13px}
+
+  /* LAYANAN & HARGA DI HP */
+  .tabs{gap:8px;margin-bottom:24px}
+  .tab{padding:8px 16px;font-size:14px}
+  .tab.sub{padding:6px 12px;font-size:13px}
+  .svc-intro h3{font-size:28px}
   .grid3{grid-template-columns:1fr}
-  .plan{padding:28px}
+  .plan{padding:24px}
+  .price{font-size:32px}
+  
+  /* FORM DI HP */
+  .f2{grid-template-columns:1fr}
   form, .summary{padding:24px}
-  .contact{grid-template-columns:1fr}
-  .map-container{height:300px}
-
-  .clients-section{padding:48px 0 64px}
-  .clients-grid{gap:16px}
-  .client-logo-box{width:100px; height:60px; padding:8px;}
+  .summary h4{font-size:22px}
+  .total{font-size:28px}
+  
+  /* KONTAK DI HP */
+  .contact{grid-template-columns:1fr;gap:16px}
+  .contact .info{padding:24px 16px}
+  .map-container{height:250px}
+  
+  /* LOGO MITRA DI HP */
+  .clients-section{padding:40px 0 48px}
+  .clients-grid{gap:12px}
+  .client-logo-box{width:80px;height:50px;padding:6px}
+  
+  /* FOOTER DI HP */
+  footer{padding:24px 0;font-size:13px}
 }
 </style>
 </head>
@@ -223,7 +247,6 @@ footer{border-top:1px solid var(--line);padding:48px 0;color:var(--mute);font-si
       
       <div class="about-stats">
         <div class="stat-item">
-          <!-- Angka diubah menjadi 85 -->
           <h3><span class="counter" data-target="85">0</span>+</h3>
           <p>Proyek Selesai</p>
         </div>
